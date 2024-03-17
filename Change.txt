@@ -1,0 +1,9 @@
+1-> Implement role based authentication  (Pending)
+2-> Create a backend to store refresh token securely to avoid sign In again and again 
+
+*************PROJECT HALTED LEARNING NODE JS****************
+
+doing cookie ya browser storage mein save karo kyu ki context refresh hone par udd ja raha hai toh user ki id nahi store ho paa rahi
+
+*******************
+remove validator package
