@@ -82,7 +82,7 @@ const SignUp = ({ setNewUser }) => {
                     <img src="/success.svg" className="w-28 h-28" alt="" />
                 </div >
                 :
-                <div className="flex flex-col w-fit  text-3xl  border-2 border-black p-8 rounded-md">
+                <div className="flex flex-col w-1/4  text-3xl  border-2 border-black p-8 rounded-md">
                     <span className="text-center">Register</span>
                     <span ref={errorRef} className={err ? "err text-red-600 text-sm text-center" : "offscreen"} aria-live="assertive">{err}</span>
                     <form className="flex flex-col text-lg" onSubmit={handleLogIn}>

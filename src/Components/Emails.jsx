@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import EmailsListing from "./EmailsListing";
-import { NavLink, useLocation, } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import Login from "../Pages/Login";
 const Emails = () => {
     const location = useLocation();
+    const navigate =useNavigate()
     const activeLink = location.pathname.split("/").pop();
 
     const options = [
@@ -32,16 +35,15 @@ const Emails = () => {
 
     ]
 
+    useEffect(()=>{
+        if(location.pathname=='/') {
+            return navigate('inbox')
+        }
+    },[location.pathname,navigate])
     return <>
         {
             localStorage.getItem('id') == null ?
-                <div className="w-full h-full flex items-center justify-center">
-                    <div className="flex flex-col w-fit  text-3xl  border-2 border-black p-8 rounded-md items-center">
-                        <span className="text-center"> Please Login First</span>
-                        <img src="/login.svg" className="w-28 h-28" alt="" />
-                        <NavLink to='/login' className='border-2 border-black p-2 rounded-md hover:bg-slate-200'>Login</NavLink>
-                    </div >
-                </div>
+                <Login/>
                 :
                 <div className="flex h-[94%] overflow-none bg-[#EDF2F4]">
                     <div className="w-1/6 flex flex-col h-full rounded-md pt-20">

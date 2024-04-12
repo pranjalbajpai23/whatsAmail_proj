@@ -7,3 +7,21 @@ doing cookie ya browser storage mein save karo kyu ki context refresh hone par u
 
 *******************
 remove validator package
+
+need of manageing multiple authtoken 
+
+
+*****************************
+Problems-
+
+1st- Need to get user's email (manualy asking user for email is not good)
+2nd- Management of multiple emails account 
+        |_ for that i need to have manage multiple access token and their email account as well
+                |_ to achieve this we need to modify database schema 
+                    |_we need to modify schema and store Email ids and thier refresh token 
+                        |_this is very sensitive data it can cause single point of failure 
+                            |_
+
+*********************************
+
+useGoogleAuth 214 - not fetiching mails from other email ids 

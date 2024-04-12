@@ -1,5 +1,6 @@
-const useTwilio = (from, subject, body) => {
-  const sendTwilio = async () => {
+const useTwilio = () => {
+  const sendTwilio = async (from, subject, body) => {
+    // console.log(from, subject, body);
     const response = await fetch("http://localhost:3500/twilio", {
       method: "POST",
       headers: {
@@ -8,9 +9,9 @@ const useTwilio = (from, subject, body) => {
       },
       body: new URLSearchParams({
         id: localStorage.getItem("id"),
-        from,
-        subject,
-        body,
+        from: from,
+        subject: subject,
+        body: body,
       }),
     });
     console.log(await response.json());

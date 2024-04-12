@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 
 const emails_Google = createSlice({
@@ -5,7 +6,7 @@ const emails_Google = createSlice({
   initialState: [],
   reducers: {
     addInitialItems: (state, action) => {
-      return action.payload;
+      return [...state,...action.payload];
     },
     removeInitialItems: (state, action) => {
       return [];

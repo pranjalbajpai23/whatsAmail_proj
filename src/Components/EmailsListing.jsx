@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useGmail from "../Hooks/useGmail";
 import { useSelector } from "react-redux";
 import useTwilio from "../Hooks/useTwilio";
+import Connecting from "../Pages/Connecting";
 
 const EmailsListing = ({ lable }) => {
     const mails = useSelector(state => state.emails_Google);
@@ -22,7 +23,10 @@ const EmailsListing = ({ lable }) => {
         }
     }
     return <>
-
+        {
+            lable=="connect"?
+            <Connecting/>
+            :
         <div className="bg-white h-[90%]  rounded-2xl  w-5/6 ">
             <div className="flex items-center p-2">
                 <div className=" rounded-md p-2 mr-2 hover:bg-slate-400/25">
@@ -87,7 +91,7 @@ const EmailsListing = ({ lable }) => {
             </div>
             <button className="border-2 border-black p-2" onClick={sendMail}>Press to send top most email to twilio</button>
         </div>
-
+        }
     </>
 }
 export default EmailsListing;

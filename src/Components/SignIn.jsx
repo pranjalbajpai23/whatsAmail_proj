@@ -39,7 +39,7 @@ const SignIn = ({ setNewUser }) => {
                 localStorage.setItem('accessToken', data.accessToken);
                 const GAccessToken = await getAccessTokenGmail();
                 localStorage.setItem('GaccessToken',GAccessToken);
-                navigate('/mail/inbox');
+                navigate('/inbox');
             }
             else {
                 setErr(data.message);
@@ -53,7 +53,7 @@ const SignIn = ({ setNewUser }) => {
 
 
     return <>
-        <div className="flex flex-col w-fit text-3xl  border-2 border-black p-8 rounded-md">
+        <div className="flex flex-col w-1/4 text-3xl  border-2 border-black p-8 rounded-md">
             <span className="text-center">Login</span>
             <span ref={errorRef} className={err ? "err text-red-600 text-sm text-center" : "offscreen"} aria-live="assertive">{err}</span>
             <form className="flex flex-col text-lg" onSubmit={handleLogIn}>
