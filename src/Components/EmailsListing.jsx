@@ -16,7 +16,9 @@ const EmailsListing = ({ lable }) => {
     }
     useEffect(() => {
         fetchEmails(lable);
-    }, [refresh, lable])
+    }, [refresh])
+    
+
     const sendMail = async () => {
         if (mails.length) {
             await sendTwilio(mails[0].From, mails[0].Subject, mails[0].message);
@@ -27,7 +29,7 @@ const EmailsListing = ({ lable }) => {
             lable=="connect"?
             <Connecting/>
             :
-        <div className="bg-white h-[90%]  rounded-2xl  w-5/6 ">
+        <div className="bg-white h-[90%]  rounded-2xl  w-[80%] ">
             <div className="flex items-center p-2">
                 <div className=" rounded-md p-2 mr-2 hover:bg-slate-400/25">
                     <input className="mx-2 hover:bg-slate-400/75" type="checkbox" name="" id="" />
@@ -43,8 +45,8 @@ const EmailsListing = ({ lable }) => {
                 </button>
             </div>
 
-            <div className="w-full h-[90%] overflow-y-auto rounded-2xl">
-                <table className="flex  rounded-2xl  flex-col divide-y divide-gray-200">
+            <div className=" h-[90%]  ">
+                <table className="flex h-[95%] overflow-hidden    flex-col divide-y divide-gray-200">
                     <thead className=" w-full bg-gray-50 ">
                         <tr className="w-full flex justify-between">
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sender</th>
@@ -58,7 +60,7 @@ const EmailsListing = ({ lable }) => {
                                 <img src="/loading.svg" className=" animate-spin h-28 w-28 m-4 " />
                             </div>
                             :
-                            <tbody className="flex  overflow-y-auto w-full flex-col bg-white divide-y divide-gray-200">
+                                    <tbody className="flex flex-col h-[95%] overflow-y-scroll bg-white divide-y divide-gray-200">
                                 {mails.map((email) => {
                                     const name = email.From.split('<')[0].trim();
                                     // Split the date string by space
@@ -73,16 +75,16 @@ const EmailsListing = ({ lable }) => {
                                     if (date.getDate() != dayOfMonth) {
                                         displayData = dayOfMonth + " " + month;
                                     }
-                                    return <tr key={email.id} className="flex  justify-between hover:bg-[#8D99AE]/25">
-                                        <div className="flex w-5/6">
-                                            <td className="w-1/6  px-4 py-4 font-bold ">{name}</td>
-                                            <td className="w-fit px-4 py-4 whitespace-nowrap ">
-                                                <span className="font-bold">{email.Subject}</span > -
-                                                {email.message.slice(0, 130 - email.Subject.length - email.message.length)} ....
-                                            </td>
-                                        </div>
-                                        <td className="w-1/6 px-4 py-4 whitespace-nowrap text-right">{displayData}</td>
-                                    </tr>
+                                    return <tr key={email.id} className="flex flex-row justify-between items-center hover:bg-[#8D99AE]/25">
+                                                <td className="flex items-center w-[90%] pl-2">
+                                                    <td className="w-[10%]  font-bold ">{name}</td>
+                                                    <td className="w-[85%] flex text-left items-center text-ellipsis overflow-hidden px-4 py-4 whitespace-nowrap ">
+                                                        <b>{email.Subject}</b > -
+                                                        {email.message}...
+                                                    </td>
+                                                </td>
+                                                <td className="w-[10%] flex flex-col pr-2  py-4 whitespace-nowrap text-right">{displayData}</td>
+                                            </tr>
                                 })}
                             </tbody>
 
