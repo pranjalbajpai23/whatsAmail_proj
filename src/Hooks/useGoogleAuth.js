@@ -185,7 +185,7 @@ const useGoogleAuth = () => {
   };
 
   export const getAccessTokenGmail = async () => {
-    const refreshTokenData = await getRefreshTokenFromDB(); // Assuming this function fetches the refresh token data from your database
+    const refreshTokenData = await getRefreshTokenFromDB();
     const accessTokens = [];
     for (const refreshTokenObj of refreshTokenData) {
       const refreshToken = refreshTokenObj.gRT;

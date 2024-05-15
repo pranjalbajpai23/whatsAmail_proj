@@ -12,21 +12,26 @@ const Connecting = () => {
         success ?
         <Success/>
         :
-            <div className="w-full h-[90vh] flex flex-col items-center bg-white rounded-md  ">
-                <ul className="flex pt-2 h-fit w-full justify-evenly bg-[#8D99AE] rounded-md">
-                    <li className={`mx-2 w-2/6  text-center font-semibold px-6 cursor-pointer ${isActive=="Phone"?"bg-white text-black rounded-t-lg":"text-white"}`} onClick={()=>setIsActive("Phone")}>Connect Phone Number </li>
-                    <li className={`mx-2 w-2/6  text-center font-semibold px-6 cursor-pointer ${isActive=="Email"?"bg-white text-black rounded-t-lg":"text-white"}`} onClick={()=>setIsActive("Email")}>Connect Email ID</li>
+            <div className="w-full h-[80vh] flex flex-col items-center bg-white rounded-md  mt-8 border-2 border-[#1E0342] poppins-light">
+                <ul className="flex pt-2 h-fit w-full justify-evenly ">
+                    <li className={`mx-2 w-2/6  text-center font-medium px-6 cursor-pointer ${isActive == "Phone" ? "bg-[#0E46A3] text-white rounded-md" :"text-[#0E46A3]"}`} onClick={()=>setIsActive("Phone")}>Connect Phone Number </li>
+                    <li className={`mx-2 w-2/6  text-center font-medium px-6 cursor-pointer ${isActive == "Email" ? "bg-[#0E46A3] text-white rounded-md" :"text-[#0E46A3]"}`} onClick={()=>setIsActive("Email")}>Connect Email ID</li>
                 </ul>
 
-                <div className="flex flex-col items-center  justify-center w-full h-full">
-                    <div className="flex flex-col w-fit h-fit   text-3xl h-5/6 border-2 border-black p-8 rounded-md">
+                <div className="flex items-center justify-evenly w-full h-full">
+                    <div className="flex justify-end w-1/3 ml-8">
+                        <img src="ph.gif" className="" alt="" />
+                    </div>
+                    <div className="flex flex-col items-center w-2/3">
+                        <div className="flex flex-col w-fit 3 h-fit text-3xl h-5/6 border-2 border-black p-8 rounded-md">
                         {
                             isActive=="Email" ?
                                 <ConnectEmail setSuccess={setSuccess} />
                                 :
                                 <ConnectPh setSuccess={setSuccess}/>
                         }
-                        <Link className="text-sm hover:border-b-2 border-black w-max"  >Unable to connect? mail us</Link>
+                        </div>
+                        <Link className="text-sm font-medium hover:border-b-2 border-black w-max  text-[#0E46A3]"  >Unable to connect? mail us</Link>
                     </div >
                 </div>
             </div>

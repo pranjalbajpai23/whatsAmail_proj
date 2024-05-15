@@ -40,9 +40,10 @@ const ConnectEmail=()=>{
             <Success text={"Gmail Account"}/>
             :
             <>
-                <span className="text-center mb-16">Connect your E-Mail Accounts</span>
-                <input type="email" name="" id="" className="border-2 rounded-md text-lg border-black" placeholder="Enter your Email Id" onChange={(e) => setEmail(e.target.value)} />
-                    <button onClick={connectToGoogle}>Get Google</button>
+                <span className="text-center font-medium  mb-16 text-[#0E46A3]">Connect your E-Mail Accounts</span>
+                    <label htmlFor="" className="text-base font-medium">Email: </label>
+                <input type="email" name="" id="" className="border-2 rounded-md text-lg border-black mb-4 p-2" placeholder="Enter your Email Id" onChange={(e) => setEmail(e.target.value)} />
+                    <button className="flex border-2 border-black p-2 items-center rounded-md my-2 hover:bg-black hover:text-white justify-center" onClick={connectToGoogle}>Get Google</button>
                 <button className="flex border-2 border-black p-2 items-center rounded-md my-2 hover:bg-black hover:text-white" onClick={saveRefreshToken} >
                     <img src="/google.svg" className="w-8 h-8 mx-2" alt="" /> Connect Google Account
                 </button>

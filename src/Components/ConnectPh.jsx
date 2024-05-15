@@ -37,14 +37,14 @@ const ConnectPh=()=>{
             <>
                 <span className="text-center mb-16">Connect your Phone Number</span>
                 {!isValid && (
-                    <p className="text-red-800">Please enter a valid phone number.</p>
+                    <p className="text-red-800 text-base tex-center">Please enter a valid phone number.</p>
                 )}
-                <div className="flex border-2 border-black items-center">
+                <div className="flex border-2 border-black items-center text-base">
                     <input
                         ref={phoneError}
                         type="text"
                         id="phoneNumber"
-                        className="py-2"
+                        className="p-2 w-11/12"
                         value={phoneNumber}
                         placeholder="Enter your phone number"
                         onChange={(e) => setPh(e.target.value)}

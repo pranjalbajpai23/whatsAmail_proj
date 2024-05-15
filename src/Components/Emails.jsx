@@ -34,7 +34,7 @@ const Emails = () => {
         },
         {
             name: "Special Feature",
-            to: "listMails"
+            to: "user_list"
         }
     ]
 
@@ -48,15 +48,15 @@ const Emails = () => {
             localStorage.getItem('id') == null ?
                 <Login/>
                 :
-                <div className="flex h-[94%] overflow-none bg-[#EDF2F4]">
+                <div className="flex h-[94%] overflow-none bg-[#E1F7F5]">
                     <div className="w-[15%] flex flex-col h-full rounded-md pt-20">
                         {
                             options.map(item => {
                                 return <NavLink
                                     key={item.name}
                                     to={`./${item.to}`}
-                                    className={` m-2 px-2 flex flex-row  justify-start rounded-md text-lg hover:bg-[#EDF2F4] ${item.name == 'Special Feature' && "ring-2 ring-blue-500 "}`}
-                                    style={({ isActive }) => (isActive ? item.name == 'Special Feature' ? { backgroundColor: "black", color: "white" }: { backgroundColor: "#8D99AE", color: "white" } : {})}
+                                    className={` m-2 px-2 flex flex-row  justify-start rounded-md text-lg hover:bg-[#9AC8CD] ${item.name == 'Special Feature' && "ring-2 ring-blue-500 "}`}
+                                    style={({ isActive }) => (isActive ? item.name == 'Special Feature' ? { backgroundColor: "black", color: "white" } : { backgroundColor: "#0E46A3", color: "white" } : {})}
                                 >
                                     
                                     {item.name}

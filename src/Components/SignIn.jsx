@@ -48,24 +48,24 @@ const SignIn = ({ setNewUser }) => {
 
         } catch (error) {
             console.log(error)
-        }
+        }   
     }
 
 
     return <>
-        <div className="flex flex-col w-1/4 text-3xl  border-2 border-black p-8 rounded-md">
-            <span className="text-center">Login</span>
+        <div className="flex flex-col  text-3xl px-12 rounded-md shadow-2xl poppins-regular bg-white">
+            <span className="text-center mb-8 mt-6 text-[#0E46A3] font-bold">Login</span>
             <span ref={errorRef} className={err ? "err text-red-600 text-sm text-center" : "offscreen"} aria-live="assertive">{err}</span>
             <form className="flex flex-col text-lg" onSubmit={handleLogIn}>
-                <label htmlFor="username">Username</label>
-                <input ref={usrNameRef} className="border-2 mb-2" type="text" id="username" onChange={(e) => setUsrName(e.target.value)} required />
-                <label htmlFor="pasword" type="password" >Password</label>
-                <input className="border-2 mb-2" type="password" id="password" onChange={(e) => setPwd(e.target.value)} />
+                <label htmlFor="username" className="text-base  text-[#0E46A3]">Username</label>
+                <input ref={usrNameRef} className="border-b-2 border-black mb-2 w-[18rem]" type="text" id="username" onChange={(e) => setUsrName(e.target.value)} required />
+                <label htmlFor="pasword" type="password" className="text-base mt-6 text-[#0E46A3]" >Password</label>
+                <input className="border-b-2 border-black mb-2" type="password" id="password" onChange={(e) => setPwd(e.target.value)} />
                 <button
-                    className="bg-black text-white hover:bg-white hover:text-black hover:border-2 border-black  p-2 px-4 rounded-md align-center mb-2"
+                    className="bg-[#1E0342] text-white font-base hover:shadow-lg hover:border-2 border-[#1E0342]  p-2 px-4 rounded-md align-center mb-2 mt-4"
                 >Login</button>
             </form>
-            <Link className="text-sm hover:border-b-2 border-black w-max" onClick={() => setNewUser(true)} >new user? register from here</Link>
+            <Link className="text-sm font-medium text-[#0E46A3] hover:border-b-2 border-black w-max mb-8 mt-2" onClick={() => setNewUser(true)} >new user? register from here</Link>
         </div>
     </>
 }

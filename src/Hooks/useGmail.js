@@ -12,7 +12,6 @@ const useGmail =  () => {
     try { 
       const fetchPromise = token.map(async (token) => {
         const response = await fetch(
-          //https://www.googleapis.com/gmail/v1/users/me/messages?INBOX=%2A
           `https://gmail.googleapis.com/gmail/v1/users/me/messages?${lable}=%2A&maxResults=5`,
           {
             method: "GET",
